@@ -12,7 +12,7 @@
         "@contentful/rich-text-react-renderer": "^15.11.1",
         "contentful": "^9.1.5",
         "lodash": "^4.17.21",
-        "next": "12.0.8",
+        "next": "12.0.9",
         "react": "17.0.2",
         "react-dom": "17.0.2"
     },
