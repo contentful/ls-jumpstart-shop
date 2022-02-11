@@ -14,6 +14,7 @@ export default function Home(props) {
   console.log(page);
   return (
     <>
+      {/* {JSON.stringify(page)} */}
       <h1 className="font-bold text-2xl mb-4 text-center">{headline}</h1>
       <div className="flex flex-col space-y-4">
         {Array.isArray(sections)
