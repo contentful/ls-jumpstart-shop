@@ -3,7 +3,7 @@
     "private": true,
     "scripts": {
         "setup": "node setup.mjs",
-        "dev": "next dev",
+        "dev": "next dev -p 9019",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
