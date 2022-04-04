@@ -10,6 +10,8 @@ const ProductCardComponent = (props) => {
   const id = _.get(props, "id");
   const productIndex = _.get(props, "productIndex");
   const fields = _.get(props, "fields");
+  const image = _.get(fields, "image");
+  const firstImage = _.get(fields, "images[0].fields.asset");
 
   const [indexIsOdd, setIndexIsOdd] = useState(false);
 
@@ -33,7 +35,11 @@ const ProductCardComponent = (props) => {
             indexIsOdd ? "order-last" : ""
           }`}
         >
-          <ImageComponent image={fields.image} />
+          {firstImage ? (
+            <ImageComponent image={firstImage} />
+          ) : (
+            <ImageComponent image={image} />
+          )}
         </div>
         <div className="w-1/2  bg-gelb p-10 flex flex-col items-center">
           <div className=" h-1/3"></div>

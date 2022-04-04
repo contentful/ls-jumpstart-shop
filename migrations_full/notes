@@ -1,0 +1,16 @@
+
+# add images field to product contentType and disable editing for 'image' field
+contentful space migration --environment-id 'test' migrations_full/05-edit-product-contentType-add-images-field.js
+
+# create media wrapper content contentType
+contentful space migration --environment-id 'test' migrations_full/06-create-mediaWrapper-contentType.js
+
+# create a media wrapper entry for every existing product image
+contentful space migration --environment-id 'test' migrations_full/07-derive-mediaWrapper-entries.js
+
+
+# populate each product's images field with atleast one image
+contentful space migration --environment-id 'test' migrations_full/08-populate-product-images-field.js
+
+
+# 
