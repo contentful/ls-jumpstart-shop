@@ -10,7 +10,7 @@
 # Step 1
 
 Create an empty space in Contentful if you haven't already. 
-Create your first API key and note the API access tokens (delivery and preview).
+Create your first API key and note the API access tokens (Delivery and Preview).
 From the Contentful web app go to  SPACE SETTINGS --> API keys....
 
 # Step 2
