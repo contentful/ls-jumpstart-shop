@@ -3,7 +3,7 @@ module.exports = function(migration) {
         .createContentType("product")
         .name("Product")
         .description("for adding products")
-        .displayField("title");
+        .displayField("internalName");
     const internalName = product
         .createField("internalName")
         .name("Internal Name")

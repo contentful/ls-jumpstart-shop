@@ -1,3 +1,9 @@
+/*
+
+add a new images field and disable editing for existing image field.
+
+*/
+
 const _ = require("lodash");
 
 module.exports = function(migration) {

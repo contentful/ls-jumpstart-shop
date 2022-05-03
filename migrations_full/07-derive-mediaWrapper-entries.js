@@ -1,3 +1,10 @@
+/*
+transformEntriesToType from product to mediaWrapper
+-derive a mediaWrapper entry from an existing image in product.
+-use the product slug as title to make entries unique unique
+
+*/
+
 const _ = require("lodash");
 
 module.exports = function(migration) {
@@ -6,33 +13,40 @@ module.exports = function(migration) {
         targetContentType: "mediaWrapper",
         from: ["image", "slug"],
         shouldPublish: true,
-        updateReferences: true,
+        updateReferences: false,
         removeOldEntries: false,
         identityKey: function(fields) {
-            const slug = _.get(fields, "slug['en-US']");
-            return slug;
+            try {
+                const slug = _.get(fields, "slug['en-US']");
+                if (slug) {
+                    return slug;
+                }
+            } catch (error) {}
         },
         transformEntryForLocale: function(fromFields, currentLocale) {
-            const oldImageId = _.get(fromFields, "image['en-US'].sys.id");
+            // fromFields is the product fields.
 
-            const slug = _.get(fromFields, "slug['en-US']");
-            const derivedAsset = {
-                sys: { type: "Link", linkType: "Asset", id: oldImageId },
-            };
+            try {
+                const oldImageId = _.get(fromFields, "image['en-US'].sys.id"); // id of existing image
 
-            if (oldImageId && slug && derivedAsset) {
-                try {
+                const slug = _.get(fromFields, "slug['en-US']");
+                if (oldImageId && slug) {
+                    const derivedAsset = {
+                        sys: { type: "Link", linkType: "Asset", id: oldImageId },
+                    }; //new asset with image id (oldImageId)
+
                     let returnedObject = {};
                     returnedObject.title = slug;
-                    returnedObject.altText = "no altText";
+                    returnedObject.altText = "no altText"; // laziness :)
                     returnedObject.asset = derivedAsset;
 
                     return returnedObject;
-                } catch (error) {
-                    return false;
                 }
+
+                return false;
+            } catch (error) {
+                return false;
             }
-            return false;
         },
     });
 };

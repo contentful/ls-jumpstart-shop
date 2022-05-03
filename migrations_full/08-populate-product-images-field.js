@@ -1,3 +1,12 @@
+/*
+transform product entries
+add one image to the images field.
+link previously created mediaWrapper entry to the images field.
+
+
+
+*/
+
 const _ = require("lodash");
 
 module.exports = async function(migration, { makeRequest }) {
@@ -15,7 +24,7 @@ module.exports = async function(migration, { makeRequest }) {
                 const mediaWrapperEntries = await makeRequest({
                     method: "GET",
                     url: `/entries?content_type=mediaWrapper&fields.title=${slug}`,
-                });
+                }); // get mediaWrapper entries with title that matches product slug since slug is unique
 
                 const mediaWrapperItems = _.get(mediaWrapperEntries, "items");
 
@@ -27,15 +36,10 @@ module.exports = async function(migration, { makeRequest }) {
                             sys: { type: "Link", linkType: "Entry", id: itemId },
                         };
 
-                        console.log("firs", derivedMediaWrapper);
                         itemArray.push(derivedMediaWrapper);
-
-                        // return {
-                        //     sys: { type: "Link", linkType: "Array", items: [itemId] },
-                        // };
                     });
 
-                    return { images: itemArray };
+                    return { images: itemArray }; //set images field
                 } else {
                     return false;
                 }
@@ -43,8 +47,6 @@ module.exports = async function(migration, { makeRequest }) {
                 console.log("error", error);
                 return false;
             }
-
-            return false;
         },
     });
 };

@@ -23,16 +23,6 @@ const ImageGallery = (props) => {
     } catch (error) {}
   }, [current, images]);
 
-  // const handleNext2 = () => {
-  //   try {
-  //     if (current + 1 === images.length) {
-  //       setCurrent(0);
-  //     } else {
-  //       setCurrent(current + 1);
-  //     }
-  //   } catch (error) {}
-  // };
-
   const handlePrevious = () => {
     try {
       if (current - 1 === -1) {
@@ -44,11 +34,6 @@ const ImageGallery = (props) => {
   };
 
   useEffect(() => {
-    // setInterval(() => {
-    //   console.log("oya change MediaWrapper");
-    //   handleNext();
-    // }, 1000);
-
     const changeFocusedImage = setInterval(() => {
       handleNext();
     }, 10000);
@@ -64,13 +49,9 @@ const ImageGallery = (props) => {
 
   return (
     <>
-      {/* <InnerLayout> */}
-      {/* {JSON.stringify(images.length)} */}
-
       <div className="relative w-full ">
         <br />
-        {/* {JSON.stringify(_.get(images[current], "fields.asset.fields.file.url"))} */}
-        {/* <h1 className="">{entryTitle}</h1> */}
+
         <div className="relative w-full flex flex-col lg:flex-row lg:space-x-4 items-center lg:p-8 lg:h-[550px]x">
           <div className=" hidden lg:block  ">
             <button onClick={handlePrevious}>
@@ -90,18 +71,22 @@ const ImageGallery = (props) => {
           </div>
           <div
             style={{
-              background: ` linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%),url(${_.get(
+              background: ` linear-gradient( rgba(0,51,163,0.8) 100%, rgba(0,212,255, 0.5)100%),url(${_.get(
                 images[current],
                 "fields.asset.fields.file.url"
               )})`,
             }}
-            className=" w-full  bg-center bg-cover relative flex flex-col items-center justify-items-center h-full  p-2 bg-blau  overflow-hidden"
+            className=" w-full bg-cover bg-center relative flex flex-col items-center justify-items-center h-full 
+             p-2 bg-blau  overflow-hidden"
           >
             <div
               className="  flex flex-col items-center justify-items-center 
             relative border-2x overflow-hidden w-full transition-all delay-100 h-full p-2 lg:p-10 "
             >
-              <div className="z-20 absolute transition-all delay-200  hover:rotate-2x hover:left-0x left-0   hover:rotate-12  hover:top-12  hover:left-16 right-0">
+              <div
+                className="z-20 absolute transition-all delay-200  left-0   
+              hover:rotate-6  hover:top-12  hover:left-16 right-0 hover:scale-125"
+              >
                 <MediaWrapper
                   classes={` h-[200px] h-auto lg:h-[350px]x w-auto object-cover  rounded-lg `}
                   {...images[current]}
@@ -134,7 +119,6 @@ const ImageGallery = (props) => {
           </div>
         </div>
       </div>
-      {/* </InnerLayout> */}
     </>
   );
 };
