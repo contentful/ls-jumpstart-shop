@@ -4,11 +4,11 @@ module.exports = function(migration) {
         .name("Media Wrapper")
         .displayField("internalName");
 
-    // mediaWrapper
-    //     .createField("title")
-    //     .name("Title")
-    //     .type("Symbol")
-    //     .required(false);
+    mediaWrapper
+        .createField("title")
+        .name("Title")
+        .type("Symbol")
+        .required(false);
 
     const internalName = mediaWrapper
         .createField("internalName")

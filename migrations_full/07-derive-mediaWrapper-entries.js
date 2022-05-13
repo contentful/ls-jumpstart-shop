@@ -30,12 +30,14 @@ module.exports = function(migration) {
                 const oldImageId = _.get(fromFields, "image['en-US'].sys.id"); // id of existing image
 
                 const slug = _.get(fromFields, "slug['en-US']");
+
                 if (oldImageId && slug) {
                     const derivedAsset = {
                         sys: { type: "Link", linkType: "Asset", id: oldImageId },
                     }; //new asset with image id (oldImageId)
 
                     let returnedObject = {};
+                    returnedObject.internalName = slug;
                     returnedObject.title = slug;
                     returnedObject.altText = "no altText"; // laziness :)
                     returnedObject.asset = derivedAsset;
