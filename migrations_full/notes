@@ -18,5 +18,5 @@ contentful space migration --environment-id 'image-carousel-feature' migrations_
 # remove image field
 contentful space migration --environment-id 'image-carousel-feature' migrations_full/09-edit-product-contentType-remove-image-field.js
 
-
+# create environment
 contentful space environment create -e image-carousel -n image-carousel
