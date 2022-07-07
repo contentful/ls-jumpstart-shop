@@ -1,7 +1,7 @@
 /*
 transform product entries
-add one image to the images field.
-link previously created mediaWrapper entry to the images field.
+add one image to the gallery field.
+link previously created mediaWrapper entry to the gallery field.
 
 
 
@@ -13,7 +13,7 @@ module.exports = async function(migration, { makeRequest }) {
     migration.transformEntries({
         contentType: "product",
         from: ["image", "slug"],
-        to: ["images"],
+        to: ["gallery"],
         transformEntryForLocale: async function(fromFields, currentLocale) {
             if (currentLocale === "de-DE") {
                 return;
@@ -39,7 +39,7 @@ module.exports = async function(migration, { makeRequest }) {
                         itemArray.push(derivedMediaWrapper);
                     });
 
-                    return { images: itemArray }; //set images field
+                    return { gallery: itemArray }; //set gallery field
                 } else {
                     return false;
                 }

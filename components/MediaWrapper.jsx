@@ -6,7 +6,7 @@ const MediaWrapper = (props) => {
   const contentType = _.get(props, "sys.contentType.sys.id");
 
   const fields = _.get(props, "fields");
-  const asset = _.get(fields, "asset");
+  const asset = _.get(fields, "image");
 
   const assetUrl = _.get(asset, "fields.file.url");
   const assetWidth = _.get(asset, "fields.file.details.image.width");

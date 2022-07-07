@@ -9,24 +9,24 @@ const ImageGallery = (props) => {
     ? _.get(props, "fields.title")
     : _.get(props, "fields.internalName");
   const fields = _.get(props, "fields");
-  const images = _.get(props, "images");
+  const gallery = _.get(props, "gallery");
   const [current, setCurrent] = useState(0);
   const [currentImage, setCurrentImage] = useState("");
 
   const handleNext = useCallback(() => {
     try {
-      if (current + 1 === images.length) {
+      if (current + 1 === gallery.length) {
         setCurrent(0);
       } else {
         setCurrent(current + 1);
       }
     } catch (error) {}
-  }, [current, images]);
+  }, [current, gallery]);
 
   const handlePrevious = () => {
     try {
       if (current - 1 === -1) {
-        setCurrent(images.length - 1);
+        setCurrent(gallery.length - 1);
       } else {
         setCurrent(current - 1);
       }
@@ -43,7 +43,7 @@ const ImageGallery = (props) => {
     };
   }, [handleNext]);
 
-  if (!images) {
+  if (!gallery) {
     return "";
   }
 
@@ -72,7 +72,7 @@ const ImageGallery = (props) => {
           <div
             style={{
               background: ` linear-gradient( rgba(0,51,163,0.8) 100%, rgba(0,212,255, 0.5)100%),url(${_.get(
-                images[current],
+                gallery[current],
                 "fields.asset.fields.file.url"
               )})`,
             }}
@@ -89,14 +89,14 @@ const ImageGallery = (props) => {
               >
                 <MediaWrapper
                   classes={` h-[200px] h-auto lg:h-[350px]x w-auto object-cover  rounded-lg `}
-                  {...images[current]}
+                  {...gallery[current]}
                 />
               </div>
 
               <div className="z-10  ">
                 <MediaWrapper
                   classes={`h-[200px] h-auto lg:h-[350px]x w-auto object-cover  rounded-lg `}
-                  {...images[current]}
+                  {...gallery[current]}
                 />
               </div>
             </div>

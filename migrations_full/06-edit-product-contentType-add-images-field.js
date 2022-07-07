@@ -10,8 +10,8 @@ module.exports = function(migration) {
     const product = migration.editContentType("product");
 
     const images = product
-        .createField("images")
-        .name("Images")
+        .createField("gallery")
+        .name("Gallery")
         .type("Array")
         .items({
             type: "Link",

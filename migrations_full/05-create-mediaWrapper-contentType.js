@@ -22,11 +22,11 @@ module.exports = function(migration) {
         .required(true)
         .validations([]);
     mediaWrapper
-        .createField("asset")
-        .name("Asset")
+        .createField("image")
+        .name("Image")
         .type("Link")
         .required(true)
         .linkType("Asset");
 
-    mediaWrapper.changeFieldControl("asset", "builtin", "assetLinkEditor", {});
+    mediaWrapper.changeFieldControl("image", "builtin", "assetLinkEditor", {});
 };
