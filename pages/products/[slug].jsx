@@ -14,7 +14,7 @@ const ProductPage = (props) => {
   const fields = _.get(product, "fields");
   const title = _.get(product, "fields.title");
   const image = _.get(product, "fields.image");
-  const images = _.get(product, "fields.images"); //new images field
+  const gallery = _.get(product, "fields.gallery"); //new gallery field
 
   return (
     <div className="relative h-full ">
@@ -22,8 +22,8 @@ const ProductPage = (props) => {
         <title>{title}</title>
       </Head>
       <div className="p-20 flex flex-col space-y-4 h-screenx items-center">
-        {images ? (
-          <ImageGallery images={images} />
+        {gallery ? (
+          <ImageGallery gallery={gallery} />
         ) : (
           <div className="w-full rounded shadow-xl">
             <ImageComponent image={image} />

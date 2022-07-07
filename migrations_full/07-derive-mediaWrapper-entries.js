@@ -40,7 +40,7 @@ module.exports = function(migration) {
                     returnedObject.internalName = slug;
                     returnedObject.title = slug;
                     returnedObject.altText = "no altText"; // laziness :)
-                    returnedObject.asset = derivedAsset;
+                    returnedObject.image = derivedAsset;
 
                     return returnedObject;
                 }

@@ -11,7 +11,7 @@ const ProductCardComponent = (props) => {
   const productIndex = _.get(props, "productIndex");
   const fields = _.get(props, "fields");
   const image = _.get(fields, "image");
-  const firstImage = _.get(fields, "images[0].fields.asset");
+  const firstImage = _.get(fields, "gallery[0].fields.image");
 
   const backgroundColor = _.get(props, "colors.backgroundColor");
   const textColor = _.get(props, "colors.textColor");
