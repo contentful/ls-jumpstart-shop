@@ -64,16 +64,16 @@ const migrations = async() => {
         errorLog(error);
     }
 
-    try {
-        await runMigration({
-            ...options,
-            ... {
-                filePath: `${__dirname}/migrations_full/09-edit-product-contentType-remove-image-field.js`,
-            },
-        });
-    } catch (error) {
-        errorLog(error);
-    }
+    // try {
+    //     await runMigration({
+    //         ...options,
+    //         ... {
+    //             filePath: `${__dirname}/migrations_full/09-edit-product-contentType-remove-image-field.js`,
+    //         },
+    //     });
+    // } catch (error) {
+    //     errorLog(error);
+    // }
 
     process.exit(statusCode);
 };
