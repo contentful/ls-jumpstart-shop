@@ -9,7 +9,7 @@ const ProductSection = (props) => {
   const textColor = _.get(fields, "textColor");
 
   if (!fields) {
-    return "";
+    return <></>;
   }
   return (
     <div className="">
