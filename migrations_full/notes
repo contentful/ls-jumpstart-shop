@@ -1,9 +1,23 @@
 
+
+# 05: create(s) the Media Wrapper content type.
+contentful space migration --environment-id 'feature-1' migrations_full/05-create-mediaWrapper-contentType.js
+
+# 06: add(s) a Gallery field to the Product content type and disables the old Image field.
+contentful space migration --environment-id 'feature-1' migrations_full/06-edit-product-contentType-add-images-field.js
+
+# 07: derive(s) Media Wrapper entries from existing Product entries using the old Image field.
+contentful space migration --environment-id 'feature-1' migrations_full/07-derive-mediaWrapper-entries.js
+
+# 08: link(s) the new Gallery field in the existing Product entries to the new Media Wrapper entries.
+contentful space migration --environment-id 'feature-1' migrations_full/08-populate-product-images-field.js
+
+
 # create media wrapper content contentType
 contentful space migration --environment-id 'feature-1' migrations_full/05-create-mediaWrapper-contentType.js
 
 
-# add images field to product contentType and disable editing for 'image' field
+# add gallery field to product contentType and disable editing for 'image' field
 contentful space migration --environment-id 'feature-1' migrations_full/06-edit-product-contentType-add-images-field.js
 
 
@@ -11,7 +25,7 @@ contentful space migration --environment-id 'feature-1' migrations_full/06-edit-
 contentful space migration --environment-id 'feature-1' migrations_full/07-derive-mediaWrapper-entries.js
 
 
-# populate each product's images field with atleast one image
+# populate each product's gallery field with atleast one image
 contentful space migration --environment-id 'feature-1' migrations_full/08-populate-product-images-field.js
 
 
@@ -20,3 +34,4 @@ contentful space migration --environment-id 'feature-1' migrations_full/09-edit-
 
 # create environment
 contentful space environment create -e image-carousel -n image-carousel
+
