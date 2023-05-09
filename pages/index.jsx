@@ -1,17 +1,13 @@
-// import Head from "next/head";
-// import Image from "next/image";
 import _ from "lodash";
 import ProductSection from "../components/ProductSection";
 import { getEntriesByContentType } from "../lib/helpers";
 
-// styles
-
 export default function Home(props) {
   const page = _.get(props, "page");
-  const sections = _.get(page, "fields.sections");
+  const sections = _.get(page, "fields.sections"); // this field is an array of page sections
   const headline = _.get(page, "fields.headline");
 
-  console.log(page);
+  console.log(page); // you can view this object in the console
   return (
     <>
       {/* {JSON.stringify(page)} */}
