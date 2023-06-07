@@ -1,5 +1,7 @@
 import _ from "lodash";
 import ProductCardComponent from "./ProductCardComponent";
+import { ContentfulLivePreview } from "@contentful/live-preview";
+const DEFAULT_LOCALE = "en-US";
 const ProductSection = (props) => {
   const id = _.get(props, "id");
   const fields = _.get(props, "fields");
@@ -15,7 +17,16 @@ const ProductSection = (props) => {
     <div className="">
       {/* {JSON.stringify(products)} */}
       <div className="bg-red-100x flex flex-col space-y-8 p-20 border-2 rounded-md shadow-md">
-        <h2 className="font-bold text-2xl text-center">{title}</h2>
+        <h2
+          // {...ContentfulLivePreview.getProps({
+          //   entryId: id,
+          //   fieldId: "title",
+          //   locale: DEFAULT_LOCALE,
+          // })}
+          className="font-bold text-2xl text-center"
+        >
+          {title}
+        </h2>
 
         {Array.isArray(products)
           ? products.map((product, productIndex) => {

@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import richtextRenderOptions from "../lib/richtextRenderOptions";
 import ImageComponent from "./ImageComponent";
+import { ContentfulLivePreview } from "@contentful/live-preview";
+
+const DEFAULT_LOCALE = "en-US";
 
 const ProductCardComponent = (props) => {
   const router = useRouter();
@@ -29,7 +32,7 @@ const ProductCardComponent = (props) => {
   }
   return (
     <div className="">
-      <div className="flex flex-col space-y-10x lg:space-y-0x lg:space-x-10x lg:flex-row w-full p-6x lg:py-10x lg:px-40x overflow-hidden rounded-md shadow-lg">
+      <div className="flex flex-col lg:flex-row w-full  overflow-hidden rounded-md shadow-lg">
         <div
           style={{
             backgroundColor: backgroundColor ? backgroundColor : null,
@@ -52,7 +55,16 @@ const ProductCardComponent = (props) => {
         >
           <div className=" h-1/3"></div>
           <div className="flex flex-col space-y-4">
-            <h2 className="text-xl font-bold ">{fields.title}</h2>
+            <h2
+              {...ContentfulLivePreview.getProps({
+                entryId: id,
+                fieldId: "title",
+                locale: DEFAULT_LOCALE,
+              })}
+              className="text-xl font-bold "
+            >
+              {fields.title}
+            </h2>
 
             <div className="">
               {documentToReactComponents(

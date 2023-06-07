@@ -10,17 +10,15 @@ const ImageComponent = (props) => {
     return "";
   }
   return (
-    <>
-      <div className="w-[400px]x overflow-hidden">
-        <Image
-          src={`https:${imgUrl}?w=1920&h=1080`}
-          width={1920}
-          height={1080}
-          layout="responsive"
+    <div className="w-full h-full flex ">
+      <div className="w-full m-auto">
+        <img
+          className="max-w-full h-auto "
           alt={imgAltText}
+          src={imgUrl ? `https:${imgUrl}` : ""}
         />
       </div>
-    </>
+    </div>
   );
 };
 

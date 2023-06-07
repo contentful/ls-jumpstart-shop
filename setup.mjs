@@ -1,8 +1,7 @@
 "use strict";
 import chalk from "chalk";
 import { createRequire } from "module";
-const require = createRequire(
-    import.meta.url);
+const require = createRequire(import.meta.url);
 const contentful = require("contentful-management");
 const spaceImport = require("contentful-import");
 const exportFile = require("./space-export/space.json");
@@ -137,12 +136,15 @@ inquirer
           }
 
           // import to space
+          console.log("import data to space..");
           await spaceImport({
             spaceId: spaceId,
             managementToken: managementToken,
             environmentId: envId,
             content: exportFile,
           });
+
+          await doMoreMigrations();
         } catch (error) {
           console.log(chalk.red(`An error occured!`), error);
         }
@@ -155,4 +157,10 @@ inquirer
             )} Please Try Again ${chalk.red("ERROR")} .`
       );
     }
-  });
+  })
+  .then(() => {});
+
+async function doMoreMigrations() {
+  console.log("Do some more migrations");
+  const allMigrate = require("./migrate-all");
+}
