@@ -1,5 +1,5 @@
 import _ from "lodash";
-import Image from "next/image";
+import Image from "next/legacy/image";
 const ImageComponent = (props) => {
   const id = _.get(props, "id");
   const image = _.get(props, "image");

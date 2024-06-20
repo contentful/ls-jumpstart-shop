@@ -8,6 +8,8 @@ export default function Home(props) {
   const headline = _.get(page, "fields.headline");
 
   console.log(page); // you can view this object in the console
+
+
   return (
     <>
       {/* {JSON.stringify(page)} */}
