@@ -31,9 +31,12 @@ const ProductPage = (props) => {
         )}
 
         <h1 className="text-3xl mb-4 font-bold">{title}</h1>
-        <p className=" text-xl text-blau">${fields.price}</p>
+        <p className=" text-xl text-blau">${fields?.price}</p>
         <div className="">
-          {documentToReactComponents(fields.description, richtextRenderOptions)}
+          {documentToReactComponents(
+            fields?.description,
+            richtextRenderOptions
+          )}
         </div>
       </div>
     </div>
