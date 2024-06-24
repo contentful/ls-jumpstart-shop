@@ -1,8 +1,7 @@
 "use strict";
 import chalk from "chalk";
 import { createRequire } from "module";
-const require = createRequire(
-    import.meta.url);
+const require = createRequire(import.meta.url);
 const contentful = require("contentful-management");
 const spaceImport = require("contentful-import");
 const exportFile = require("./space-export/space.json");
