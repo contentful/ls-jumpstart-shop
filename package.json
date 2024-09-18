@@ -12,7 +12,7 @@
         "@contentful/rich-text-react-renderer": "^15.21.2",
         "contentful": "^10.12.2",
         "lodash": "^4.17.21",
-        "next": "^14.2.4",
+        "next": "^14.2.10",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
     },
